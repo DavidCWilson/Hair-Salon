@@ -1,18 +1,32 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
-<h2>Edit Client: @Model["selectedClient"].GetName()</h2>
-<form action='/clients/@Model["selectedClient"].GetId()/edit' method="post">
-  <input type="hidden" name="_method" value="PATCH">
-  <input name="client-id" type="hidden" value='@Model["selectedClient"].GetId()'>
-  <label for="client-name">Change Name:</label>
-  <input id="client-name" name="client-name" type="text">
-  <button type="submit">Submit</button>
-</form>
-<h2><strong>DELETE</strong> Client: @Model["selectedClient"].GetName()</h2>
-<p>This is irreversable, please be sure before selecting.</p>
-<form action='/clients/@Model["selectedClient"].GetId()/delete' method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <button type="submit">Delete</button>
-</form>
+<div class="setHeight">
+  <div class="editToggle">
+    <h2><span class="editClickable">To edit this contact click here</span></h2>
+  </div>
+  <div class="edit">
+    <h2>Edit Client: @Model["selectedClient"].GetName()</h2>
+    <form action='/clients/@Model["selectedClient"].GetId()/edit' method="post">
+      <input type="hidden" name="_method" value="PATCH">
+      <input name="client-id" type="hidden" value='@Model["selectedClient"].GetId()'>
+      <label for="client-name">Change Name:</label>
+      <input id="client-name" name="client-name" type="text">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+<div class="setHeight">
+  <div class="deleteToggle">
+    <h2><span class="deleteClickable">To delete this contact click here</span></h2>
+  </div>
+  <div class="delete">
+    <h2><strong>DELETE</strong> Client: @Model["selectedClient"].GetName()</h2>
+    <p>This is irreversable, please be sure before selecting.</p>
+    <form action='/clients/@Model["selectedClient"].GetId()/delete' method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit">Delete</button>
+    </form>
+  </div>
+</div>
 <p><a href="/">Back home</a></p>

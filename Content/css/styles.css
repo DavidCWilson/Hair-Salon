@@ -1,3 +1,107 @@
 body {
   font-family: 'Forum', cursive;
+  background: #36384C url("/Content/img/barbershop.gif") no-repeat center center;
+
+}
+
+.container {
+  margin-top: 100px;
+  border: 3px solid #613A43;
+  border-radius: 10px;
+  background: rgba(132, 153, 116, .8);
+  height: 800px;
+}
+
+h1 {
+  margin: 10px auto;
+  width: 250px;
+  text-align: center;
+  border: 3px solid #613A43;
+  border-radius: 10px;
+}
+
+#pole {
+  float: right;
+  height: 80%;
+}
+
+.renderBody {
+  padding: 10px;
+  border-top:1px solid #613A43;
+  height: 500px;
+  overflow: auto;
+}
+
+em:hover {
+  cursor: col-resize;
+}
+
+a {
+  color: #E3BAB3;
+  font-size: 16px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #E9DCCD;
+}
+
+ul {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #613A43;
+}
+
+li {
+  list-style: none;
+  margin-left: -30px;
+}
+
+li img {
+  height: 30px;
+  width: auto;
+  padding-right: 10px;
+}
+
+#stylist {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.setHeight {
+  height: 150px;
+}
+
+.editToggle {
+  visibility: visible;
+}
+
+.edit {
+  display: none;
+}
+
+.deleteToggle {
+  visibility: visible;
+}
+
+.delete {
+  display: none;
+}
+
+#confetti {
+  float: left;
+  position: fixed;
+  height: 80%;
+  width: auto;
+  z-index: -100;
+  animation-name: confettiFall;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes confettiFall {
+  0% {left: 0; top: 0;};
+  50% {left: 50; top: 0;};
+  100% {left: 0; top: 0;};
+
 }

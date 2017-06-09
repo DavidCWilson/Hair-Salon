@@ -1,7 +1,7 @@
 @{
   Layout="Shared/_Layout.cshtml";
 }
-<h3>@Model["stylist"].GetFullName()</h3>
+<h3 id="stylist">@Model["stylist"].GetFullName()</h3>
 <h4>Clients:</h4>
 @if (Model["clients"].Count == 0)
 {
@@ -11,7 +11,7 @@ else{
   <ul>
     @foreach (var client in @Model["clients"])
     {
-      <li><a href="/clients/@client.GetId()">@client.GetName()</a></li>
+      <li><img src="/Content/img/buzzCut.png" alt="Hey LIL mama"><a href="/clients/@client.GetId()">@client.GetName()</a></li>
     }
   </ul>
 }

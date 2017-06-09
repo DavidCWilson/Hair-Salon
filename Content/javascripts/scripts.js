@@ -1,0 +1,10 @@
+$(document).ready(function(){
+  $(".editClickable").click(function(){
+    $(".editToggle").slideToggle();
+    $(".edit").slideToggle();
+  });
+  $(".deleteClickable").click(function(){
+    $(".deleteToggle").slideToggle();
+    $(".delete").slideToggle();
+  });
+});

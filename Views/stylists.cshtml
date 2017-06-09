@@ -8,7 +8,7 @@
   {
     @foreach(var stylist in Model)
     {
-      <li><a href="/stylists/@stylist.GetId()">@stylist.GetFullName()</a></li>
+      <li><img src="/Content/img/razor.png" alt="razor"><a href="/stylists/@stylist.GetId()">@stylist.GetFullName()</a></li>
     }
   }
   else
