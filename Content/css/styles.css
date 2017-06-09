@@ -1,7 +1,6 @@
 body {
   font-family: 'Forum', cursive;
-  background: #36384C url("/Content/img/barbershop.gif") no-repeat center center;
-
+  background: #36384C url("/Content/img/barbershopWelcome.gif") no-repeat center center;
 }
 
 .container {
@@ -103,5 +102,4 @@ li img {
   0% {left: 0; top: 0;};
   50% {left: 50; top: 0;};
   100% {left: 0; top: 0;};
-
 }
