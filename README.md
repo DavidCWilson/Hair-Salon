@@ -8,6 +8,8 @@
 
 This web application will allow the user to add stylists and clients. They will be able to delete and/or edit a client as well.
 
+![alt text](https://github.com/GrapeSalad/Hair-Salon/blob/master/Content/img/barbershop.gif "Barber Of Seville")
+
 #### RESTful Routing
 | Behavior | Input | Output |
 |---|---|---|
