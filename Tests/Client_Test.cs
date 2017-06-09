@@ -57,20 +57,47 @@ namespace HairSalon
     [Fact]
     public void Test_Update_UpdatesClientInDatabase()
     {
-      //Arrange
       string name = "Bart";
       int stylist_id = 2;
       Client testClient = new Client(name, stylist_id);
       testClient.Save();
       string newName = "Bartholomewchlewizkyzak";
 
-      //Act
       testClient.Update(newName);
 
       string result = testClient.GetName();
 
-      //Assert
       Assert.Equal(newName, result);
+    }
+    [Fact]
+    public void Test_Delete_DeletesClientFromDatabase()
+    {
+      string firstName1 = "French";
+      string lastName1 = "Fry";
+      string specialty1 = "Oil Blast";
+      Stylist testStylist1 = new Stylist(firstName1, lastName1, specialty1);
+      testStylist1.Save();
+
+      string firstName2 = "Chunky";
+      string lastName2 = "Monkey";
+      string specialty2 = "Grooming";
+      Stylist testStylist2 = new Stylist(firstName2, lastName2, specialty2);
+      testStylist2.Save();
+
+      Client testClient1 = new Client("Franz", testStylist1.GetId());
+      testClient1.Save();
+      Client testClient2 = new Client("Hanz", testStylist2.GetId());
+      testClient2.Save();
+
+      testClient1.Delete();
+      List<Stylist> resultStylists = Stylist.GetAll();
+      List<Stylist> testStylistList = new List<Stylist> {testStylist1, testStylist2};
+
+      List<Client> resultClients = Client.GetAll();
+      List<Client> testClientList = new List<Client> {testClient2};
+
+      Assert.Equal(testStylistList, resultStylists);
+      Assert.Equal(testClientList, resultClients);
     }
   }
 }
