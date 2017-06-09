@@ -1,0 +1,18 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<h2>Edit Client: @Model["selectedClient"].GetName()</h2>
+<form action='/clients/@Model["selectedClient"].GetId()/edit' method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <input name="client-id" type="hidden" value='@Model["selectedClient"].GetId()'>
+  <label for="client-name">Change Name:</label>
+  <input id="client-name" name="client-name" type="text">
+  <button type="submit">Submit</button>
+</form>
+<h2><strong>DELETE</strong> Client: @Model["selectedClient"].GetName()</h2>
+<p>This is irreversable, please be sure before selecting.</p>
+<form action='/clients/@Model["selectedClient"].GetId()/delete' method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit">Delete</button>
+</form>
+<p><a href="/">Back home</a></p>

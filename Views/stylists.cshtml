@@ -1,0 +1,20 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<h3>Stylists</h3>
+<ul>
+  @if (Model.Count !=0)
+  {
+    @foreach(var stylist in Model)
+    {
+      <li><a href="/stylists/@stylist.GetId()">@stylist.GetFullName()</a></li>
+    }
+  }
+  else
+  {
+    <p>AINT NOTHIN HERE</p>
+  }
+</ul>
+<h4><a href ="/stylists/new">Add a new stylist!</a></h4>
+<h4><a href="/">Return home</a></h4>

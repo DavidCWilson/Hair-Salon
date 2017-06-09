@@ -1,0 +1,8 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+<h2>Welcome to the Client Page, here you can view the clients information!</h2>
+<h3>@Model["client"].GetName()</h3>
+<p><a href='/clients/@Model["client"].GetId()/edit'>Edit this client</a></p>
+<p><a href ="/clients/new">Add a new client!</a></p>
+<p><a href="/">Return home</a></p>

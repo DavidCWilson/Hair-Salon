@@ -1,0 +1,17 @@
+@{
+  Layout="Shared/_Layout.cshtml";
+}
+
+<h4>Here you can add a new client to a Stylist:</h4>
+
+<form action="/clients/new" method="post">
+  <label for="client-firstname">Client First Name</label>
+  <input id="client-firstname" name="client-firstname" type="text">
+  <select name="stylist-id">
+    @foreach (var stylist in Model)
+    {
+      <option value="@stylist.GetId()">@stylist.GetFullName() | @stylist.GetSpecialty()</option>
+    }
+  </select>
+  <button type="submit">Add</button>
+</form>
