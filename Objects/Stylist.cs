@@ -44,6 +44,14 @@ namespace HairSalon.Objects
     {
       return _specialty;
     }
+    public string GetFirstName()
+    {
+      return _firstName;
+    }
+    public string GetLastName()
+    {
+      return _lastName;
+    }
     public string GetFullName()
     {
       return _firstName + " " + _lastName;
@@ -98,6 +106,43 @@ namespace HairSalon.Objects
         conn.Close();
       }
       return allStylists;
+    }
+    public void Save()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("INSERT INTO stylists (firstName, lastName, specialty) OUTPUT INSERTED.id VALUES (@StylistFirstName, @StylistLastName, @StylistSpecialty)", conn);
+
+      SqlParameter firstNameParameter = new SqlParameter();
+      firstNameParameter.ParameterName = "@StylistFirstName";
+      firstNameParameter.Value = this.GetFirstName();
+
+      SqlParameter lastNameParameter = new SqlParameter();
+      lastNameParameter.ParameterName = "@StylistLastName";
+      lastNameParameter.Value = this.GetLastName();
+
+      SqlParameter specialtyParameter = new SqlParameter();
+      specialtyParameter.ParameterName = "@StylistSpecialty";
+      specialtyParameter.Value = this.GetSpecialty();
+
+      cmd.Parameters.Add(firstNameParameter);
+      cmd.Parameters.Add(lastNameParameter);
+      cmd.Parameters.Add(specialtyParameter);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        this._id = rdr.GetInt32(0);
+      }
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
     }
   }
 }
